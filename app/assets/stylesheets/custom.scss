@@ -66,3 +66,37 @@ h1, h2 {
     }
   }
 }
+
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
+
+
+.navbar-transparent {
+  margin-bottom: 0px;
+  background-color: rgba(0,0,0,0.5);
+  a {
+    color: #fff !important;
+  }
+
+  .navbar-brand {
+    padding: 0px;
+    margin-top: 15px;
+  }
+
+  img {
+    height: 40px;
+  }
+}
+
+.user-name {
+  color: white;
+  font-family: Impact;
+  font-size: 30px;
+  padding: 10px;
+}
