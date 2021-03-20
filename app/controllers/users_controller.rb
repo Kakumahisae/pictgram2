@@ -20,8 +20,12 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find_by(id: params[:id])
-    @user.update(user_params)
-    redirect_to root_path, success: "編集完了"
+    if @user.update(user_params)
+      redirect_to root_path, success: "編集完了"
+    else
+      flash[:danger]="編集失敗"
+      render :edit
+    end  
   end  
     
   

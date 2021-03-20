@@ -3,6 +3,13 @@
     <div class="row">
       <div class="col-md-offset-4 col-md-4 users-new-container">
         <h1 class="text-center text-white">Update your profile</h1>
+        
+        <% @user.errors.full_messages.each do |message| %>
+          <div class="error_message">
+            <%= message %>
+          </div>
+        <% end %>  
+        
         <%= form_for @user do |f| %>
           <div class="form-group">
             <%= f.label :name, class: 'text-white' %>
@@ -23,6 +30,7 @@
 
           <%= f.submit "編集", class: 'btn-block btn-white' %>
         <% end %>
+        
       </div>
     </div>
   </div>
