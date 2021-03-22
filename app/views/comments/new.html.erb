@@ -1,0 +1,28 @@
+<div class="users-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <h1 class="text-center text-white">Comment</h1>
+        
+        <% @comment.errors.full_messages.each do |message| %>
+          <div class="error_message">
+            <%= message %>
+          </div>
+        <% end %>  
+        
+        <%= form_for @comment do |f| %>
+          <div class="form-group">
+            
+            <%= f.text_area :comment, class: 'comment_form' %>
+            <%= f.hidden_field :topic_id, value: @comment.topic_id %>
+          </div>
+           
+          <% if logged_in? %>
+            <%= f.submit "コメントする", class: 'btn-block btn-white' %>
+          <% end %>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
+</div>
