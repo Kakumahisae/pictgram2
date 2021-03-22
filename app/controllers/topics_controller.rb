@@ -9,6 +9,10 @@ class TopicsController < ApplicationController
     @topics = Topic.all.includes(:favorite_users)
   end  
   
+  def show
+    @topic = Topic.find_by(topic_params)
+  end
+  
   def create
     @topic = current_user.topics.new(topic_params)
     
@@ -19,6 +23,12 @@ class TopicsController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    @topic = Topic.find_by(topic_params)
+    @topic.destroy
+    redirect_to :index, success: '写真を削除しました'
+  end  
   
   private
     def topic_params

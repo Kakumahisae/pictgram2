@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to root_path, success: 'ログイン成功'
     # もしいない場合
     else
-      flash.now[:danger]='ログイン失敗'
+      flash.now[:danger]='パスワードまたはメールアドレスが不正です。'
       render :new
     end  
   end
