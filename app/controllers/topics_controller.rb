@@ -11,6 +11,14 @@ class TopicsController < ApplicationController
   
   def show
     @topic = Topic.find_by(id: params[:id])
+    
+    if @topic.user == current_user
+      render "show"
+    else
+      flash[:danger] = "権限がありません"
+      redirect_to topics_path
+    end
+          
   end
   
   def create

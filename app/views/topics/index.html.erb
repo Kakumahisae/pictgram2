@@ -12,8 +12,10 @@
             <p class="topic-text">
               <%= topic.description %>
             </p>
-            
-              <%= link_to("編集","/topics/#{topic.id}") %>
+              
+              <% if topic.user_id == current_user.id %>
+                <%= link_to("編集","/topics/#{topic.id}") %>
+              <% end %>  
             
               <%= image_tag topic.image.url %>
             
@@ -42,14 +44,19 @@
           <% end %>  
             
             
+            <p> COMMENT </p>
             <% topic.comments.each do |comment| %>
               <div class="topic_comment">
+                <div class="comment_user">
+                  <%= comment.user.name %>
+                  <% if comment.user_id == current_user.id %>
+                  <%= link_to "コメントを編集する", comment_path(comment) %>
+                <% end %>
+                </div>
                 <%= comment.comment %>
               </div>
             <% end %>  
             
-            
-            <!--<link_to "詳細", "/topics/#{topic.id}" %>-->
               
           </div>
         </div>
