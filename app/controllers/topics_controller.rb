@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
   end  
   
   def show
-    @topic = Topic.find_by(topic_params)
+    @topic = Topic.find_by(id: params[:id])
   end
   
   def create
@@ -25,9 +25,9 @@ class TopicsController < ApplicationController
   end
   
   def destroy
-    @topic = Topic.find_by(topic_params)
+    @topic = Topic.find_by(id: params[:id])
     @topic.destroy
-    redirect_to :index, success: '写真を削除しました'
+    redirect_to topics_path, success: '写真を削除しました'
   end  
   
   private

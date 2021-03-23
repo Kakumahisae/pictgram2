@@ -1,4 +1,4 @@
-<!--写真投稿一覧-->
+<!--写真投稿詳細-->
 <div class="topic-index-wrapper">
   <div class="container">
   
@@ -6,43 +6,18 @@
         <div class="col-md-6 col-md-offset-3">
           <div class="topic-index-single">
             <h2 class="topic-author">
-              <%= topic.user.name %>
+              <%= @topic.user.name %>
             </h2>
             
             <p class="topic-text">
-              <%= topic.description %>
+              <%= @topic.description %>
             </p>
             
-            <%= image_tag topic.image.url %>
+            <%= image_tag @topic.image.url %>
             
-          <% if logged_in? %>
-            <% if !topic.favorite_users.include?(current_user)  %>
-              <!--もしお気に入り登録されていないのであれば、黒ハートをクリックする。
-              クリックするとfavoriteは現在空なのでcreateに飛ぶ-->
-              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-                <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
-              <% end %>
-            <% else %>
-              <%= link_to favorites_path(topic_id: topic.id),method: :delete do %>
-                <%= image_tag 'icons/heart-red.png', class: 'topic-index-icon' %>
-              <% end %>
-              <%= topic.favorite_users.count %>
-            <% end %>
+            <%= link_to "削除", topic_path(@topic), method: :delete %>
             
-            <%= link_to new_comment_path(topic_id: topic.id) do %>
-              <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
-            <% end %>
-            
-          <% else %>
-            <p>お気に入り、コメント機能を使うにはログインしてください</p>
-          <% end %>  
-            
-            
-            <% topic.comments.each do |comment| %>
-              <div class="topic_comment">
-                <%= comment.comment %>
-              </div>
-            <% end %>  
+          
               
           </div>
         </div>

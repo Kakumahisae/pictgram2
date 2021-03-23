@@ -13,6 +13,7 @@
               <%= topic.description %>
             </p>
             
+              <%= link_to("編集","/topics/#{topic.id}") %>
             
               <%= image_tag topic.image.url %>
             
@@ -47,7 +48,8 @@
               </div>
             <% end %>  
             
-            <%= link_to "削除",topic_path(topic) %>
+            
+            <!--<link_to "詳細", "/topics/#{topic.id}" %>-->
               
           </div>
         </div>
