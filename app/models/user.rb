@@ -2,11 +2,17 @@ class User < ApplicationRecord
   
   validates :name, presence: true, length: {minimum:3} 
   
+  #最初に書いたやつ
   #VALID_PASSWORD_REGEX=/\A[a-z0-9]+\z/
   #validates :password, format: {with: VALID_PASSWORD_REGEX}
   #validates :password, length: {minimum: 8, maximum: 32, allow_blank: true}
   
-  VALID_PASSWORD_REGEX=/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+  #tech boost copy
+  #VALID_PASSWORD_REGEX=/\A[a-zA-Z0-9]+\z/
+  #validates :password, length: {minimum:8, maximum:32}
+  #validates :password, format: {with: VALID_PASSWORD_REGEX}
+  
+  VALID_PASSWORD_REGEX=/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,32}+\z/i
   validates :password, presence: true,
                        length: { minimum: 8 , maximum: 32},
                        format: {
