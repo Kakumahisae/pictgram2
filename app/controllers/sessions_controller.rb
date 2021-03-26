@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
   def new
-    @user = User.new
+    
   end
   
   def create
     # 送られてきたmailに一致するユーザーがいるか？で分岐
-    user=User.find_by(email: params[:session][:email])
+    user = User.find_by(email: params[:session][:email])
     # もしいた場合、そのユーザーが持つパスワードがparamsのpasswordと合っているかどうか
     if user && user.authenticate(params[:session][:password])
       log_in user

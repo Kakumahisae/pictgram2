@@ -3,6 +3,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
+        
+        <div class="go-topic-index">
+          <%= link_to("TOPIC INDEXへ", topics_path) %>
+        </div>
+        
         <h1 class="text-center">Add Picture</h1>
         <%= form_for @topic do |f| %>
           <div class="form-group">
