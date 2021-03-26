@@ -7,18 +7,9 @@ class User < ApplicationRecord
   #validates :password, format: {with: VALID_PASSWORD_REGEX}
   #validates :password, length: {minimum: 8, maximum: 32, allow_blank: true}
   
-  #tech boost copy
-  #VALID_PASSWORD_REGEX=/\A[a-zA-Z0-9]+\z/
-  #validates :password, length: {minimum:8, maximum:32}
-  #validates :password, format: {with: VALID_PASSWORD_REGEX}
   
-  VALID_PASSWORD_REGEX=/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,32}+\z/i
-  validates :password, presence: true,
-                       length: { minimum: 8 , maximum: 32},
-                       format: {
-                         with: VALID_PASSWORD_REGEX
-                       },
-                       allow_nil: true
+  VALID_PASSWORD_REGEX = /\A(?=\d{0,99}+[a-z])(?=[a-z]{0,99}+\d)[a-z\d]{8,100}+\z/i
+  validates :password, presence: true, length: { minimum: 8, maximum: 32}, format: { with: VALID_PASSWORD_REGEX , message: :invalid_password}  
   
   # まず正規表現を左辺に代入。validates :カラム名, format: { with: 正規表現 }とすることで正規表現と属性が合致するか確認
   VALID_EMAIL_REGEX=/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
