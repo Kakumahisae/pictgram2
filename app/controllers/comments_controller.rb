@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   
   def new
     @comment = Comment.new
-    @comment.user_id = current_user.id
+    #@comment.user_id = current_user.id
     @comment.topic_id = params[:topic_id]
   end
   
