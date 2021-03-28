@@ -7,6 +7,10 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: 再入力
+        
+      comment:
+        comment: コメント
+        
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

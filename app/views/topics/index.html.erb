@@ -44,7 +44,7 @@
           <% end %>  
             
             
-            <p> COMMENT </p>
+            <div class="comment-logo"> COMMENT </p>
             <% topic.comments.each do |comment| %>
               <div class="topic_comment">
                 <div class="comment_user">
@@ -53,7 +53,9 @@
                   <%= link_to "コメントを編集する", comment_path(comment) %>
                 <% end %>
                 </div>
-                <%= comment.comment %>
+                <div class="comment">
+                  <%= comment.comment %>
+                </div>  
               </div>
             <% end %>  
             

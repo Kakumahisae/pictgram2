@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     # もしいた場合、そのユーザーが持つパスワードがparamsのpasswordと合っているかどうか
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to root_path, success: 'ログイン成功'
+      redirect_to topics_path, success: 'ログイン成功'
     # もしいない場合
     else
       flash.now[:danger]='パスワードまたはメールアドレスが不正です。'
