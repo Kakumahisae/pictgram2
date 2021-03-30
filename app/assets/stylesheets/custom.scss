@@ -177,13 +177,22 @@ h1, h2 {
 
 .go-topic-index {
   font-size: 30px;
-  text-align: center
+  text-align: center;
 }
 
 .comment {
   font-size: 20px;
+  border: 2px solid darkgray;
+  margin: 10px;
+  padding: 5px;
 }
 
 .comment-logo {
   font-size: 30px;
+}
+
+
+.user-show {
+  text-align: center;
+  padding-top: 80px;
 }

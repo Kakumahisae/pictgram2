@@ -1,0 +1,22 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <h1 class="user-show"><%= @user.name %>さんの投稿</h1>
+        
+     
+        
+        <% @comments.each do |comment| %>
+          <div class="comment">
+            <%= comment.comment %>
+          </div>
+        <% end %>
+        
+        <%= link_to("back", topics_path) %>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+  

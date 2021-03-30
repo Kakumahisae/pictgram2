@@ -48,10 +48,11 @@
             <% topic.comments.each do |comment| %>
               <div class="topic_comment">
                 <div class="comment_user">
-                  <%= comment.user.name %>
+                  <!--<= comment.user.name %>-->
+                  <%= link_to(comment.user.name, "/users/#{comment.user_id}") %>
                   <% if comment.user_id == current_user.id %>
-                  <%= link_to "コメントを編集する", comment_path(comment) %>
-                <% end %>
+                    <%= link_to "コメントを編集する", comment_path(comment) %>
+                  <% end %>
                 </div>
                 <div class="comment">
                   <%= comment.comment %>
